@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pass4sure</title>
+	<link rel="shortcut icon" type="image/png" href="./Assets/Img/Logo/logo_weather.jpg" />
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+	<!--Font-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300&display=swap" rel="stylesheet">
+	<!--Icon-->
+	<script src="https://kit.fontawesome.com/edb6c5ed5e.js" crossorigin="anonymous"></script>
+	<!--CSS-->
+	<link rel="stylesheet" href="./Assets/Css/main.css" type="text/css">
+	<!--Jquery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<!-- Link Swiper's CSS -->
+	<link rel="stylesheet" href="./Assets/Css/swiper/swiper-bundle.min.css" />
+	<!-- Link File Js -->
+	<script src="./Assets/Js/preloader.js"></script>
+</head>
+
+<body>
+	<div class="loader">
+		<div></div>
+	</div>
+	<div class="content">
+		<!-- ===================================HEADER=================================== -->
+		<div id="header">
+			<div class="header-container">
+				<div class="content-container row ">
+					<div class="logo-container col-4">
+						<a href="#" class="logo-header">
+							<img src="./Assets/Img/Logo/logo_weather.jpg" alt="logo weather">
+						</a>
+						<div class="title-header">Weather Forecast</div>
+					</div>
+					<div class="search-container col-8">
+						<div class="dropdown_location">
+							<input type="text" class="textBox" name="input_city" placeholder="Chọn thành phố" readonly>
+							<div class="option">
+								<div class="changeCityHN"> Hà Nội</div>
+								<!-- onclick="show('Hà Nội')"" -->
+								<div class="changeCityHCM" > Hồ Chí Minh</div>
+								<!-- onclick="show('Hồ Chí Minh')" -->
+							</div>
+						</div>
+						<div class="dropdown_temp">
+							<input type="text" class="textBox_temp" placeholder="°C" readonly>
+							<div class="option">
+								<div class="Celsius">°C</div>
+								<!-- onclick="show_temp('°C'),showFtoCtoast()"  -->
+								<div class="Fahrenheit">°F</div>
+								<!-- onclick="show_temp('°F'),showCtoFtoast()" -->
+							</div>
+						</div>
+						<div id="toast"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ===================================TODAY TEMP=================================== -->
+		<div id="today_container">
+			<div class="today_location-container">
+				<div class="today_location-header">
+					<div class="today_location-name"></div>
+					<div class="today_location-date"></div>
+				</div>
+			</div>
+
+			<div class="today_temp-container row">
+				<div class="today_temp-main col-8">
+					<div class="temp_main"></div>
+					<div class="current_status"></div>
+					<div class="day-night_temp">
+						<span class="dot_temp">.</span>
+					</div>
+				</div>
+				<div class="today_temp-icon col-4">
+					<img class="icon_forecast" src="" alt="icon_forecast">
+				</div>
+			</div>
+		</div>
+		<!-- ===================================TODAY DETAILS=================================== -->
+		<div id="today_details">
+			<h3 class="today_details-title"></h3>
+			<div class="today_tempSun_container row">
+				<div class="today_temp_feel col-6">
+					<span class="temp_content"></span>
+					<span class="temp_title"> Cảm giác như </span>
+				</div>
+				<div class="today_sunrise col-6">
+					<div class="today_sunrise_container">
+
+						<div class="animation_sunrise">
+
+							<div class="container_animation">
+								<div class="blank_cover"></div>
+								<div class="container">
+									<div class="card">
+										<div class="percent" style="--clr:#e87538; --num:50;">
+											<div class="dot">
+												<i class="fa-solid fa-sun sun"></i>
+											</div>
+											<svg>
+												<circle cx="70" cy="70" r="70"></circle>
+												<circle cx="70" cy="70" r="70"></circle>
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+
+						</div>
+						<div class="time_sun_container">
+							<span class="icon_sunrise">
+								<i class="fa-solid fa-arrow-up-from-bracket yellow_color"></i>
+							</span>
+							<span class="time_sun"></span>
+							<span class="icon_sundown">
+								<i class="fa-solid fa-arrow-right-to-bracket transform_down yellow_color"></i>
+							</span>
+							<span class="time_sun margin_left_icon"></span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="today_details_container">
+				<div class="details_left">
+					<div class="detail_item row">
+						<div class="items_left col-6">
+							<i class="fa-solid fa-temperature-low"></i>
+							Cao/Thấp
+						</div>
+						<div class="items_right col-6">
+							<span></span>
+						</div>
+					</div>
+					<div class="detail_item row">
+						<div class="items_left col-6">
+							<i class="fa-solid fa-droplet mr-2"></i>
+							Độ ẩm
+						</div>
+						<div class="items_right col-6">
+							<span></span>
+						</div>
+					</div>
+					<div class="detail_item row">
+						<div class="items_left col-6">
+							<i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+							Áp suất
+						</div>
+						<div class="items_right col-6">
+							<span></span>
+						</div>
+					</div>
+				</div>
+				<div class="details_right">
+					<div class="detail_item row">
+						<div class="items_left col-6">
+							<i class="fa-solid fa-wind"></i>
+							Gió
+						</div>
+						<div class="items_right col-6">
+							<span></span>
+						</div>
+					</div>
+					<div class="detail_item row">
+						<div class="items_left col-6">
+							<i class="fa-solid fa-location-arrow"></i>
+							Hướng gió
+						</div>
+						<div class="items_right col-6">
+							<span></span>
+						</div>
+					</div>
+					<div class="detail_item row">
+						<div class="items_left col-6">
+							<i class="fa-solid fa-eye"></i>
+							Tầm nhìn
+						</div>
+						<div class="items_right col-6">
+							<span></span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- ===================================CHART DAILY=================================== -->
+		<div id="updateChart">
+			<div class="chart_cover">
+				<div id="chartContainer"></div>
+				<div class="right_bottom"></div>
+				<div class="cover_mark top_left"></div>
+			</div>
+		</div>
+		<!-- ===================================History Weather Slide=================================== -->
+		<div id="history_weather">
+			<div class="history_weather_container noselect">
+				<div class="history_weather_title ml-3">
+					<span>Dự báo thời tiết 7 ngày gần đây </span>
+				</div>
+				<div class="history_weather_slider_container">
+					<div class="swiper mySwiper">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide slider_container"></div>
+							<div class="swiper-slide slider_container"></div>
+							<div class="swiper-slide slider_container"></div>
+							<div class="swiper-slide slider_container"></div>
+							<div class="swiper-slide slider_container"></div>
+							<div class="swiper-slide slider_container"></div>
+							<div class="swiper-slide slider_container"></div>
+						</div>
+						<div class="swiper-pagination"></div>
+					</div>
+				</div>
+				<div class="history_weather_tag ml-3">
+					<button type="button" class="btn btn-primary button_weather">7 ngày gần đây</button>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- ===================================FOOTER=================================== -->
+
+		<div id="footer">
+			<div class="footer_container">
+				<div class="blank"></div>
+				<div class="footer_line"></div>
+				<div class="footer_content_container row">
+					<div class="footer_logo_container col-4 row">
+						<div class="footer_logo_container col-7">
+							<img class="footer_logo img-fluid " src="./Assets/Img/Logo/logo_weather.jpg"
+								alt="logo_weather">
+						</div>
+						<div class="footer_logo_name col-5">
+							<span>Weather Forecast </span>
+						</div>
+					</div>
+					<div class="col-1"></div>
+					<div class="footer_teamMember_container col-7">
+						<h1 class="teamMember_name">
+							Team Pass4sure
+						</h1>
+						<div class="teamMember_role row">
+							<div class="team_frontend col-6 row">
+								<div class="logo_team col-3">
+									<img class="logo_frontend fe_fix " src="./Assets/Img/Logo/front-end.png"
+										alt="logo_frontend">
+									<span>Frontend</span>
+								</div>
+								<div class="team_name_container col-9">
+									<h1 class="team_name">Nguyễn Ngọc Tiến - B19DCVT320</h1>
+									<h1 class="team_name">Nguyễn Thiện Lâm - B19DCVT215</h1>
+									<div class="logo_language">
+										<img class="html_css_js" src="./Assets/Img/Logo/front-end html css js.png"
+											alt="html_css_js">
+									</div>
+								</div>
+							</div>
+							<div class="team_backend col-6 row">
+								<div class="logo_team col-3">
+									<img src="./Assets/Img/Logo/backend.png" alt="logo_frontend" class="logo_backend">
+									<span>Backend</span>
+								</div>
+								<div class="team_name_container col-9">
+									<h1 class="team_name">Lương Ngọc Huy - B19DCVT175</h1>
+									<h1 class="team_name">Vũ Khắc Phiêu - B19DCVT279</h1>
+									<div class="logo_language">
+										<img class="laravel_logo" src="./Assets/Img/Logo/back-end laravel.png"
+											alt="laravel_logo" />
+										<img class="php_logo" src="./Assets/Img/Logo/back-end php.png" alt="php_logo">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="footer_end"></div>
+			</div>
+		</div>
+		<button class="btnScrollTop scroll-up">
+		</button>
+		<!-- Swiper JS -->
+		<script src="./Assets/Js/Swiper/swiper-bundle.min.js"></script>
+		<script src="./Assets/Js/Main.js"></script>
+		<script src="./Assets/Js/data/dataMain.js"></script>
+		<script src="./Assets/Js/Canvas/jquery-1.11.1.min.js"></script>
+		<script src="./Assets/Js/Canvas/jquery.canvasjs.min.js"></script>
+	</div>
+</body>
+</html>

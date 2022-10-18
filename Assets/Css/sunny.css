@@ -1,0 +1,47 @@
+:root {
+  --white-color: #fff;
+  --black-color: #000;
+  --textDefault: #2b2b2b;
+  --textBrand: #1b4de4;
+
+  /* Weather Theme Color */
+  --backgroundDefault: #fff;
+  --backgroundTheme: #005986;
+  /* #59516e : Cloudy; #005986 : Sunny ; */
+  --backgroundHeader: #337a9e;
+  /* #7A748B : Cloudy; #337a9e : Sunny ; */
+}
+body {
+  background: linear-gradient(
+    180deg,
+    var(--backgroundTheme) 0%,
+    rgba(239, 239, 241, 0.0932608) 100%
+  );
+}
+#header {
+  background-color: var(--backgroundTheme);
+}
+.dropdown_temp input {
+  background: var(--backgroundTheme);
+}
+.footer_line {
+  background-color: var(--backgroundTheme);
+}
+.dropdown_location input {
+  background: var(--backgroundHeader);
+}
+.dropdown_location input {
+  background: var(--backgroundHeader);
+}
+.dropdown_location .option {
+  background: var(--backgroundHeader);
+}
+#today_container {
+  background-color: var(--backgroundHeader);
+}
+.footer_end {
+  background: var(--backgroundHeader);
+}
+.today_temp-icon .icon_forecast {
+	content: url(../Img/icon_forecast/sunny.png);
+}
