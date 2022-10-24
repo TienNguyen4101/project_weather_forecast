@@ -32,10 +32,12 @@
 	<!-- Link Swiper's CSS -->
 	<link rel="stylesheet" href="./Assets/Css/swiper/swiper-bundle.min.css" />
 	<!-- Link File Js -->
-	<script src="./Assets/Js/preloader.js"></script>
+	<script src="./Assets/Js/data/dataSub.js"></script>
+	<script src="./Assets/Js/toast.js"></script>
 </head>
 
 <body>
+	<div id="toast"></div>
 	<div class="loader">
 		<div></div>
 	</div>
@@ -69,7 +71,15 @@
 								<!-- onclick="show_temp('°F'),showCtoFtoast()" -->
 							</div>
 						</div>
-						<div id="toast"></div>
+						<div class="seperate">|</div>
+						<div class="form-box">
+							<div class="button-box">
+								<div id="btn"></div>
+								<button type="button" class="toggle-btn-left">VN</button>
+								<button type="button" class="toggle-btn-right">EN</button>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
@@ -106,9 +116,7 @@
 				</div>
 				<div class="today_sunrise col-6">
 					<div class="today_sunrise_container">
-
 						<div class="animation_sunrise">
-
 							<div class="container_animation">
 								<div class="blank_cover"></div>
 								<div class="container">
@@ -125,7 +133,6 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
 						<div class="time_sun_container">
 							<span class="icon_sunrise">
@@ -137,7 +144,6 @@
 							</span>
 							<span class="time_sun margin_left_icon"></span>
 						</div>
-
 					</div>
 				</div>
 			</div>
@@ -146,7 +152,7 @@
 					<div class="detail_item row">
 						<div class="items_left col-6">
 							<i class="fa-solid fa-temperature-low"></i>
-							Cao/Thấp
+							<span>Cao/Thấp </span> 
 						</div>
 						<div class="items_right col-6">
 							<span></span>
@@ -155,7 +161,7 @@
 					<div class="detail_item row">
 						<div class="items_left col-6">
 							<i class="fa-solid fa-droplet mr-2"></i>
-							Độ ẩm
+							<span>Độ ẩm </span> 
 						</div>
 						<div class="items_right col-6">
 							<span></span>
@@ -164,7 +170,7 @@
 					<div class="detail_item row">
 						<div class="items_left col-6">
 							<i class="fa-solid fa-down-left-and-up-right-to-center"></i>
-							Áp suất
+							<span>Áp suất </span> 
 						</div>
 						<div class="items_right col-6">
 							<span></span>
@@ -175,7 +181,7 @@
 					<div class="detail_item row">
 						<div class="items_left col-6">
 							<i class="fa-solid fa-wind"></i>
-							Gió
+							<span>Gió </span> 
 						</div>
 						<div class="items_right col-6">
 							<span></span>
@@ -184,7 +190,7 @@
 					<div class="detail_item row">
 						<div class="items_left col-6">
 							<i class="fa-solid fa-location-arrow"></i>
-							Hướng gió
+							<span>Hướng gió </span> 
 						</div>
 						<div class="items_right col-6">
 							<span></span>
@@ -193,7 +199,7 @@
 					<div class="detail_item row">
 						<div class="items_left col-6">
 							<i class="fa-solid fa-eye"></i>
-							Tầm nhìn
+							<span>Tầm nhìn </span> 
 						</div>
 						<div class="items_right col-6">
 							<span></span>
@@ -303,7 +309,11 @@
 		<!-- Swiper JS -->
 		<script src="./Assets/Js/Swiper/swiper-bundle.min.js"></script>
 		<script src="./Assets/Js/Main.js"></script>
+		<!-- data link -->
+		<script src="./Assets/Js/data/engsubCondition.js"></script>
+		<script src="./Assets/Js/data/engsubCondition_subbed.js"></script>
 		<script src="./Assets/Js/data/dataMain.js"></script>
+		
 		<script src="./Assets/Js/Canvas/jquery-1.11.1.min.js"></script>
 		<script src="./Assets/Js/Canvas/jquery.canvasjs.min.js"></script>
 	</div>
