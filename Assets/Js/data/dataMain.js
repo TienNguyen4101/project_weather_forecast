@@ -3,9 +3,9 @@ if (sessionStorage.getItem("location") == null) {
 }
 if (sessionStorage.getItem("location") == "Hà Nội") {
 // script data API return
-var post_api_HN_current = "https://f017-27-72-29-71.ap.ngrok.io/api/data_current?loc_id=1";
-var post_api_HN_chart = "https://f017-27-72-29-71.ap.ngrok.io/api/data_chart?loc_id=1";
-var post_api_HN_history = "https://f017-27-72-29-71.ap.ngrok.io/api/data_history?loc_id=1";
+var post_api_HN_current = "https://636dc989b567eed48ac90d4a.mockapi.io/api/data_current/1";
+var post_api_HN_chart = "https://636dc989b567eed48ac90d4a.mockapi.io/api/data_chart/1";
+var post_api_HN_history = "https://636dc989b567eed48ac90d4a.mockapi.io/api/data_history/1";
 
 const promise1 = new Promise(function(resolve) {
       var dataApiCurrent = fetch(post_api_HN_current)
@@ -42,7 +42,10 @@ Promise.all([promise1, promise2 , promise3])
 .then((value) => {
 	var dataApiCurrent = value[0];
 	var dataApiChart = value[1];
-	var dataApiHistory = value[2];
+	var dataApiHistory = value[2].history;
+	delete dataApiCurrent.id;
+	delete dataApiChart.id;
+	delete dataApiHistory.id;
 	console.log(value);
 	allInOne(dataApiCurrent, dataApiChart , dataApiHistory);
 	//use jquery preloader
@@ -67,10 +70,10 @@ Promise.all([promise1, promise2 , promise3])
 };
 if (sessionStorage.getItem("location") == "Hồ Chí Minh") {
 	// script data API return
-	var post_api_HCM_current = "https://f017-27-72-29-71.ap.ngrok.io/api/data_current?loc_id=2";
-	var post_api_HCM_chart = "https://f017-27-72-29-71.ap.ngrok.io/api/data_chart?loc_id=2";
-	var post_api_HCM_history = "https://f017-27-72-29-71.ap.ngrok.io/api/data_history?loc_id=2";
-	
+var post_api_HCM_current = "https://636dc989b567eed48ac90d4a.mockapi.io/api/data_current/2";
+var post_api_HCM_chart = "https://636dc989b567eed48ac90d4a.mockapi.io/api/data_chart/2";
+var post_api_HCM_history = "https://636dc989b567eed48ac90d4a.mockapi.io/api/data_history/2";
+
 	const promise1 = new Promise(function(resolve) {
 		  var dataApiCurrent = fetch(post_api_HCM_current)
 		  .then(res => {
@@ -106,7 +109,10 @@ if (sessionStorage.getItem("location") == "Hồ Chí Minh") {
 	.then((value) => {
 		var dataApiCurrent = value[0];
 		var dataApiChart = value[1];
-		var dataApiHistory = value[2];
+		var dataApiHistory = value[2].history;
+		delete dataApiCurrent.id;
+		delete dataApiChart.id;
+		delete dataApiHistory.id;
 		console.log(value);
 		allInOne(dataApiCurrent, dataApiChart , dataApiHistory);
 		//use jquery preloader

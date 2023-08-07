@@ -158,6 +158,7 @@ function allInOne(dataApiCurrent, dataApiChart, dataApiHistory) {
       };
       renderChart("Dự báo thời tiết hàng ngày"," °C",50,'Nhiệt độ','Ngày','Đêm');
     }, 500);
+    
   //define temperature type local 
   var flagDropdownTemp = 'C';
 
@@ -317,6 +318,7 @@ function allInOne(dataApiCurrent, dataApiChart, dataApiHistory) {
         }
       }
   };
+  setTimeout(updateChart,100);
   //get date to day
   var date = new Date();
   var year = date.getFullYear();
@@ -1098,7 +1100,8 @@ function allInOne(dataApiCurrent, dataApiChart, dataApiHistory) {
       <div class="day_temp_slider color_temp">${dataApiHistory[i].dayTemp}°</div>
       <div class="night_temp_slider color_temp">${dataApiHistory[i].nightTemp}°</div>
       <div class="weather_slider_icon">
-      <img class="mx-auto" src="">
+      <!-- <img class="mx-auto" src="" "url('./Assets/Img/cloud/night_sky.jpg')"> -->
+      <img class="mx-auto" src="https://cdn2.iconfinder.com/data/icons/weather-color-2/500/weather-03-512.png">
       </div>
       <div class="humidity_percent_slider mt-3">
       <i class="fa-solid fa-cloud-rain"></i> 
@@ -1111,7 +1114,6 @@ function allInOne(dataApiCurrent, dataApiChart, dataApiHistory) {
         <div class="day_temp_slider color_temp bolder">${dataApiHistory[i].dayTemp}°</div>
         <div class="night_temp_slider color_temp bolder">${dataApiHistory[i].nightTemp}°</div>
         <div class="weather_slider_icon">
-        <img class="mx-auto" src="${dataApiHistory[i].weatherDay}">
         </div>
         <div class="humidity_percent_slider mt-3">
         <i class="fa-solid fa-cloud-rain"></i> 
@@ -1120,10 +1122,10 @@ function allInOne(dataApiCurrent, dataApiChart, dataApiHistory) {
         `
        }
     }
-    var getDataIcon = document.querySelectorAll(".weather_slider_icon > img");
-    for (var i = 0; i < getDataIcon.length;i++) {
-        getDataIcon[i].src = dataApiHistory[i].weatherDay;
-    }
+    // var getDataIcon = document.querySelectorAll(".weather_slider_icon > img");
+    // for (var i = 0; i < getDataIcon.length;i++) {
+    //     getDataIcon[i].src = dataApiHistory[i].weatherDay;
+    // }
     swiper.activeIndex = current_day; //detect current day in slider
   }
   renderSlider();
